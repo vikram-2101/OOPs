@@ -31,15 +31,23 @@ public class Main {
         // Constructor is a special function that runs when you create a object and it
         // allocate some variables and
 
-        System.out.println(vikram.rollno);
-        System.out.println(vikram.name);
-        System.out.println(vikram.mark);
+        // System.out.println(vikram.rollno);
+        // System.out.println(vikram.name);
+        // System.out.println(vikram.mark);
 
         //  vikram.changeName("vikram kumar");
 
         // vikram.greeting();
 
-       
+       Student random  = new Student(vikram);
+       System.out.println(random.name);
+
+       Student random2 = new Student();
+       System.out.println(random2.name);
+
+       Student one = new Student();
+       Student two = one;
+       one.name = "Something"  ; 
     }
 }
 
@@ -65,9 +73,13 @@ class Student {
     }
 
     Student() {
-        this.rollno = 67;
-        this.name = "vikram";
-        this.mark = 95f;
+        // this.rollno = 67;
+        // this.name = "vikram";
+        // this.mark = 95f;
+
+        // This is how you call a constructor from another constructor
+        // Internally: new Student();
+        this(13, "default person" , 34.3f);
 
     }
  
@@ -86,5 +98,14 @@ class Student {
             rollno = roll;
             name = naam;
             mark = marks;
+        }
+
+        Student (Student other) {
+            this.name= other.name;
+            this.rollno= other.rollno;
+            this.mark= other.mark;
+            // if we removet this then it will also work but for conventional method we should write this
+            //this means what object you are reffering
+            // this will be replaced with name like vikram, rahul
         }
 }
